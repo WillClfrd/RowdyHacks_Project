@@ -20,6 +20,7 @@ public class enemyreaction : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag ("enemy")) {
             SceneManager.LoadScene ("scene1");
+            Debug.Log("bruh");
         }
     }
 }
