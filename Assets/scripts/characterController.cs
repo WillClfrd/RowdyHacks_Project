@@ -9,7 +9,6 @@ public class characterController : MonoBehaviour
     public float jumpForce = 50.0f;  // Jump force
     public float groundDistance = 0.2f;  // Distance from the ground
     public TilemapCollider2D groundCollider;  // Collider2D for the ground
-
     private Rigidbody2D rb = null;  // Rigidbody2D component reference
     private bool isGrounded;  // Is the character grounded?
 
@@ -25,9 +24,7 @@ public class characterController : MonoBehaviour
         Vector2 movement = new Vector2(horizontalInput, 0) * speed;
         rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
 
-        
 
-        //rb.AddForce(Vector2.up * jumpForce);
     }
 
     void Update()
