@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using System;
 
 public class characterController : MonoBehaviour
 {
@@ -11,10 +12,13 @@ public class characterController : MonoBehaviour
     public TilemapCollider2D groundCollider;  // Collider2D for the ground
     private Rigidbody2D rb = null;  // Rigidbody2D component reference
     private bool isGrounded;  // Is the character grounded?
+    private DateTime bufferStart;
+    public float bufferLength = 0.5f;
 
     void Start()
     {
         this.rb = GetComponent<Rigidbody2D>();  // Get the Rigidbody2D component reference
+        //bufferStart = DateTime.Now;
     }
 
     void FixedUpdate()
@@ -23,20 +27,18 @@ public class characterController : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         Vector2 movement = new Vector2(horizontalInput, 0) * speed;
         rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
-
-
     }
 
     void Update()
     {
-
+        DateTime currentTime = DateTime.Now;
+        TimeSpan timeSinceJump = currentTime - bufferStart;
         // Jump if the character is grounded and the Jump button is pressed
-        if (isGrounded && Input.GetButtonDown("Jump"))
+        if ((Input.GetButtonDown("Jump")) && (timeSinceJump.TotalSeconds >= bufferLength))
         {
             //rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse) ;
             rb.AddForce(Vector2.up*jumpForce);
-            
-            isGrounded = false;
+            bufferStart = DateTime.Now;
         }
 
         // Check if the character is grounded
