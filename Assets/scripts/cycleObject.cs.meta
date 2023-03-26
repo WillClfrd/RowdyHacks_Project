@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 922b7fab4927b304cb47596c4c905dfc
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - caveObject: {fileID: 8717000768823905630, guid: 3a037ea3b0a3c35479cbbf36a8cf67ca, type: 3}
+  - oceanObject: {fileID: 6387127016310595955, guid: c15589d97045bd44484d402573ae5d6f, type: 3}
+  - forestObject: {fileID: 5663177987871390818, guid: b86ea46fdd4743d46b1fbb7d588b4c5c, type: 3}
+  - spaceObject: {fileID: 2720500567355991245, guid: 466b01d56f6c62146a226dcbe30a0d49, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
