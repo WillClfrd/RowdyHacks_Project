@@ -15,9 +15,12 @@ public class characterController : MonoBehaviour
     private bool isGrounded;  // Is the character grounded?
     private DateTime bufferStart;
     public float bufferLength = 0.5f;
+    public float numJump = 0;
+    public cycleObject cycle;
 
     void Start()
     {
+        cycle = gameObject.GetComponent<cycleObject>();
         this.rb = GetComponent<Rigidbody2D>();  // Get the Rigidbody2D component reference
         //bufferStart = DateTime.Now;
     }
@@ -35,11 +38,32 @@ public class characterController : MonoBehaviour
         DateTime currentTime = DateTime.Now;
         TimeSpan timeSinceJump = currentTime - bufferStart;
         // Jump if the character is grounded and the Jump button is pressed
-        if ((Input.GetButtonDown("Jump")) && (timeSinceJump.TotalSeconds >= bufferLength))
+        if (Input.GetButtonDown("Jump"))
         {
-            //rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse) ;
-            rb.AddForce(Vector2.up*jumpForce);
-            bufferStart = DateTime.Now;
+
+            if (cycle.type == 'a')
+            {
+                if (timeSinceJump.TotalSeconds >= bufferLength)
+                {
+                    numJump = 0;
+                }
+                if (numJump < 2)
+                {
+                    rb.AddForce(Vector2.up*jumpForce);
+                    bufferStart = DateTime.Now;
+                    numJump++;
+                } 
+            }
+            else
+            {
+                if(timeSinceJump.TotalSeconds >= bufferLength)
+                {
+                    rb.AddForce(Vector2.up*jumpForce);
+                    bufferStart = DateTime.Now;
+                }
+            }
+            
+
         }
         if (rb.position.y < -9)
         {
