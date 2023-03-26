@@ -114,6 +114,12 @@ public class cycleObject : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter2D(Collision2D other) {
+        if (other.collider.GetComponent<BoxCollider2D>() != null && type == 'r') {
+            Destroy(other.collider.gameObject);
+        }
+    }
+
     // public void cycleTypeForward(){
     //     if(isCave){
     //         isCave = false;
