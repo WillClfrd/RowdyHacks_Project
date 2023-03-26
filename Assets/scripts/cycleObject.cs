@@ -1,3 +1,4 @@
+using System.Xml.Serialization;
 using System.Runtime.CompilerServices;
 using System.Net;
 using System.Collections;
@@ -121,6 +122,9 @@ public class cycleObject : MonoBehaviour
             if(type != 'f'){
                 underwaterStart = DateTime.Now;
             }
+        }
+        if(other.CompareTag("end_flag")){
+            SceneManager.LoadScene("scene4");
         }
     }
 

@@ -12,6 +12,7 @@ TagManager:
   - control
   - lore
   - back
+  - end_flag
   layers:
   - Default
   - TransparentFX
