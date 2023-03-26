@@ -28,7 +28,7 @@ public class clickButton : MonoBehaviour
         }
         else if(gameObject.CompareTag("lore"))
         {
-            SceneManager.LoadScene("scene4");
+            SceneManager.LoadScene("scene5");
         }
         else if(gameObject.CompareTag("back"))
         {
