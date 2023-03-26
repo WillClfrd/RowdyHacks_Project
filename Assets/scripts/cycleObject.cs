@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using System.Net;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ public class cycleObject : MonoBehaviour
     public Quaternion caveRotation;
     public char type;
     private IEnumerator coroutine;
-    private DateTime bufferStart;
+    private DateTime underwaterStart;
     public float drownBuffer = 2.0f;
     public bool isInWater;
     public characterController controller;
@@ -44,6 +45,12 @@ public class cycleObject : MonoBehaviour
                 isForest = true;
                 isSpace = false;
                 break;
+            case 'p':
+                isCave = true;
+                isOcean = false;
+                isForest = false;
+                isSpace = false;
+                break;
             case 'r':
                 isCave = false;
                 isOcean = true;
@@ -57,7 +64,7 @@ public class cycleObject : MonoBehaviour
     void Update()
     {
         DateTime currentTime = DateTime.Now;
-        TimeSpan timeUnderwater = currentTime - bufferStart;
+        TimeSpan timeUnderwater = currentTime - underwaterStart;
         GameObject newObject = null;
         if(Input.GetKeyDown(KeyCode.E)){
             if(isCave){  
@@ -72,6 +79,14 @@ public class cycleObject : MonoBehaviour
             }
             else if(isSpace){
                 newObject = Instantiate(spaceObject, transform.position, transform.rotation);
+                // isForest = false;
+                // isSpace = true;
+                newObject = Instantiate(forestObject, transform.position, Quaternion.identity);
+            }
+            else if(isSpace){
+                // isSpace = false;
+                // isCave=true;
+                newObject = Instantiate(spaceObject, transform.position, Quaternion.identity);
             }
             Destroy(gameObject);
             Debug.Log("rock " + isCave);
@@ -112,7 +127,7 @@ public class cycleObject : MonoBehaviour
         if(other.CompareTag("water")){
             isInWater = true;
             if(type != 'f'){
-                bufferStart = DateTime.Now;
+                underwaterStart = DateTime.Now;
             }
         }
     }
@@ -131,7 +146,6 @@ public class cycleObject : MonoBehaviour
             Destroy(other.collider.gameObject);
         }
     }
-
 
     public void cycleTypeBackward(){
         if(isCave){
