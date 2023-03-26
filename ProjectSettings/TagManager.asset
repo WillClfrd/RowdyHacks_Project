@@ -8,6 +8,10 @@ TagManager:
   - Wall
   - stone
   - water
+  - start
+  - control
+  - lore
+  - back
   layers:
   - Default
   - TransparentFX
