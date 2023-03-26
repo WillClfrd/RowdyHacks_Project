@@ -112,6 +112,9 @@ MonoBehaviour:
   isSpace: 0
   caveRotation: {x: 0, y: 0, z: 0, w: 0}
   type: 102
+  drownBuffer: 2
+  isInWater: 0
+  controller: {fileID: 0}
 --- !u!114 &2843440008083416168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,9 +128,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpForce: 50
+  jumpForce: 0
   groundDistance: 0.2
   groundCollider: {fileID: -5366577357098513109}
+  bufferLength: 0.5
 --- !u!50 &7075035577374980059
 Rigidbody2D:
   serializedVersion: 4

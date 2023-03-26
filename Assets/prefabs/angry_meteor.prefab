@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 8717000768823905619}
   - component: {fileID: -2201523933862057047}
   - component: {fileID: 3187873566532079623}
-  - component: {fileID: 1681144626918281201}
   - component: {fileID: -4475447362908685050}
+  - component: {fileID: 1968147293857442137}
   m_Layer: 0
   m_Name: angry_meteor
   m_TagString: Player
@@ -128,6 +128,7 @@ MonoBehaviour:
   jumpForce: 50
   groundDistance: 0.001
   groundCollider: {fileID: -4475447362908685050}
+  bufferLength: 1
 --- !u!1839735485 &-2201523933862057047
 Tilemap:
   m_ObjectHideFlags: 0
@@ -187,32 +188,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &1681144626918281201
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8717000768823905630}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6, y: 6}
-    newSize: {x: 6, y: 6}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 6, y: 6}
-  m_EdgeRadius: 0.1
 --- !u!19719996 &-4475447362908685050
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -229,3 +204,19 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
+--- !u!58 &1968147293857442137
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8717000768823905630}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3
