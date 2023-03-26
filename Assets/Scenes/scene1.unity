@@ -7728,14 +7728,14 @@ PrefabInstance:
     - target: {fileID: 3356012998344763199, guid: 4dba7b1fb843ec14c9fe27e42ab66851, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 809165acc7c70df47bb7e440617b5b42, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 3356012998344763199, guid: 4dba7b1fb843ec14c9fe27e42ab66851, type: 3}
       propertyPath: m_SortingOrder
       value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 3356012998344763199, guid: 4dba7b1fb843ec14c9fe27e42ab66851, type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5130330250138146736, guid: 4dba7b1fb843ec14c9fe27e42ab66851, type: 3}
       propertyPath: m_Name
