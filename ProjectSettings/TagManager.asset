@@ -6,6 +6,7 @@ TagManager:
   tags:
   - enemy
   - Wall
+  - stone
   - water
   layers:
   - Default

@@ -74,10 +74,21 @@ public class cycleObject : MonoBehaviour
                 newObject = Instantiate(oceanObject, transform.position, transform.rotation);
             }
             else if(isForest){
+<<<<<<< HEAD
                 newObject = Instantiate(forestObject, transform.position, transform.rotation);
             }
             else if(isSpace){
                 newObject = Instantiate(spaceObject, transform.position, transform.rotation);
+=======
+                // isForest = false;
+                // isSpace = true;
+                newObject = Instantiate(forestObject, transform.position, Quaternion.identity);
+            }
+            else if(isSpace){
+                // isSpace = false;
+                // isCave=true;
+                newObject = Instantiate(spaceObject, transform.position, Quaternion.identity);
+>>>>>>> dae82d368344437af2282fd4105153e9ff557e7f
             }
             Destroy(gameObject);
             Debug.Log("rock " + isCave);
@@ -123,6 +134,7 @@ public class cycleObject : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
     void OnTriggerExit2D(Collider2D other){
         if(other.CompareTag("water")){
             isInWater = false;
@@ -131,6 +143,32 @@ public class cycleObject : MonoBehaviour
             controller.jumpForce = 50f;
         }
     }
+=======
+    void OnCollisionEnter2D(Collision2D other) {
+        if (other.collider.GetComponent<BoxCollider2D>() != null && type == 'r') {
+            Destroy(other.collider.gameObject);
+        }
+    }
+
+    // public void cycleTypeForward(){
+    //     if(isCave){
+    //         isCave = false;
+    //         isOcean = true;
+    //     }
+    //     else if(isOcean){
+    //         isOcean = false;
+    //         isForest = true;
+    //     }
+    //     else if(isForest){
+    //         isForest = false;
+    //         isSpace = true;
+    //     }
+    //     else if(isSpace){
+    //         isSpace = false;
+    //         isCave = true;
+    //     }
+    // }
+>>>>>>> dae82d368344437af2282fd4105153e9ff557e7f
 
     public void cycleTypeBackward(){
         if(isCave){

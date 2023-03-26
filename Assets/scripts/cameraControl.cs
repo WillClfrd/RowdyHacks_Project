@@ -24,10 +24,14 @@ public class cameraControl : MonoBehaviour
     }
     private void FixedUpdate()
     {
+       
         if (target == null) 
         {
+            GameObject playerObject1 = GameObject.FindWithTag("Player");
+            SetTarget(playerObject1.transform);
             return;
         }
+        
 
         Vector3 targetCamPos = target.position +offset;
         targetCamPos.y = transform.position.y;
