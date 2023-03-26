@@ -62,6 +62,20 @@ public class characterController : MonoBehaviour
                     bufferStart = DateTime.Now;
                 }
             }
+
+            if (cycle.type == 'f')
+            {
+                if (timeSinceJump.TotalSeconds >= bufferLength)
+                {
+                    numJump = 0;
+                }
+                if (numJump < 50)
+                {
+                    rb.AddForce(Vector2.up*jumpForce);
+                    bufferStart = DateTime.Now;
+                    numJump++;
+                } 
+            }
             
 
         }
