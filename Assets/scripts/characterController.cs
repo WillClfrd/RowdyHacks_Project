@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System;
+using UnityEngine.SceneManagement;
 
 public class characterController : MonoBehaviour
 {
@@ -39,6 +40,10 @@ public class characterController : MonoBehaviour
             //rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse) ;
             rb.AddForce(Vector2.up*jumpForce);
             bufferStart = DateTime.Now;
+        }
+        if (rb.position.y < -9)
+        {
+            SceneManager.LoadScene ("scene1");
         }
 
         // Check if the character is grounded

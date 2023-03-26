@@ -72,12 +72,12 @@ public class cycleObject : MonoBehaviour
             else if(isForest){
                 // isForest = false;
                 // isSpace = true;
-                newObject = Instantiate(forestObject, transform.position, transform.rotation);
+                newObject = Instantiate(forestObject, transform.position, Quaternion.identity);
             }
             else if(isSpace){
                 // isSpace = false;
                 // isCave=true;
-                newObject = Instantiate(spaceObject, transform.position, transform.rotation);
+                newObject = Instantiate(spaceObject, transform.position, Quaternion.identity);
             }
             Destroy(gameObject);
             Debug.Log("rock " + isCave);
